@@ -1,0 +1,158 @@
+/* :root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+} */
+
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+:root {
+  --success: green;
+  --warning: orange;
+  --error: red;
+  --success-light: rgba(0, 128, 0, 0.4);
+  --warning-light: rgba(203, 181, 16, 0.4);
+  --error-light: rgba(244, 16, 16, 0.4);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins";
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ecf0f1;
+}
+
+.success {
+  background: var(--success);
+}
+
+.warning {
+  background: var(--warning);
+}
+
+.error {
+  background: var(--error);
+}
+
+.control button {
+  padding: 8px 16px;
+  border-radius: 4px;
+  border: none;
+  outline: none;
+  font-size: 28px;
+  color: white;
+  margin: 0 10px;
+}
+
+#toasts {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+}
+
+.toast {
+  padding: 20px;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  font-size: 26px;
+  overflow: hidden;
+  animation: slide_show 2s ease forwards;
+  margin-bottom: 10px;
+}
+
+.toast i {
+  margin: 0 10px;
+}
+
+.toast .countdown {
+  background: black;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 4px;
+  width: 100%;
+  animation: countdown 2s ease;
+}
+
+.toast.success {
+  background: var(--success-light);
+  border-left: 6px solid var(--success);
+}
+.toast.warning {
+  background: var(--warning-light);
+  border-left: 6px solid var(--warning);
+}
+.toast.error {
+  background: var(--error-light);
+  border-left: 6px solid var(--error);
+}
+
+.toast.success .countdown {
+  background: var(--success);
+}
+
+.toast.warning .countdown {
+  background: var(--warning);
+}
+
+.toast.error .countdown {
+  background: var(--error);
+}
+
+@keyframes countdown {
+  0% {
+    width: 100%;
+  }
+
+  100% {
+    width: 0%;
+  }
+}
+
+@keyframes slide_show {
+  0% {
+    transform: translateX(100%);
+  }
+  25% {
+    transform: translateX(-10%);
+  }
+  50% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-10px);
+  }
+}
+
+@keyframes slide_hide {
+  0% {
+    transform: translateX(-10%);
+  }
+  25% {
+    transform: translateX(0%);
+  }
+  50% {
+    transform: translateX(10%);
+  }
+  100% {
+    transform: translateX(200%);
+  }
+}
